@@ -12,7 +12,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/eval-protocol/eval-protocol/blob/main/LICENSE)
 [![Discord](https://img.shields.io/badge/discord-join-7289da.svg)](https://discord.com/channels/1137072072808472616/1400975572405850155)
 
-[Documentation](https://evalprotocol.io) • [Quick Start](#quick-start) • [Why EP?](#why-eval-protocol) • [Community](#community)
+[Documentation](https://evalprotocol.io) • [Quick Start](#user-content--quick-start) • [Why EP?](#user-content--why-eval-protocol) • [Community](#user-content--community)
 
 </div>
 
