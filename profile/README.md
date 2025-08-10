@@ -2,7 +2,8 @@
 
 <div align="center">
 
-![Eval Protocol Logo](https://raw.githubusercontent.com/eval-protocol/eval-protocol/main/assets/logo-light.png)
+<img src="https://raw.githubusercontent.com/eval-protocol/eval-protocol/main/assets/favicon-light.png" alt="Eval Protocol Logo" height="128"/>
+
 
 **Build high quality AI applications.**
 
