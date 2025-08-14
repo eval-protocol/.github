@@ -34,10 +34,10 @@ Eval Protocol (EP) transforms evaluations from one-off tests into the foundation
 
 ### Core Projects
 
-| Repository | Description | Status |
-|------------|-------------|---------|
-| **[eval-protocol](https://github.com/eval-protocol/eval-protocol)** | Main specification, documentation, and examples | ![Active](https://img.shields.io/badge/status-active-brightgreen) |
-| **[python-sdk](https://github.com/eval-protocol/python-sdk)** | Python implementation with pytest integration | ![Active](https://img.shields.io/badge/status-active-brightgreen) |
+| Repository | Description |
+|------------|-------------|
+| **[eval-protocol](https://github.com/eval-protocol/eval-protocol)** | Main specification, documentation, and examples |
+| **[python-sdk](https://github.com/eval-protocol/python-sdk)** | Python implementation with pytest integration |
 
 ## 🚀 Quick Start
 
