@@ -4,22 +4,18 @@
 
 <img src="https://raw.githubusercontent.com/eval-protocol/eval-protocol/main/assets/favicon-light.png" alt="Eval Protocol Logo" height="128"/>
 
+**The open-source toolkit for building your internal model leaderboard.**
 
-**Build high quality AI applications.**
-
-**An open specification, pytest wrapper, and suite of tools that standardizes how developers author evaluations for large language model (LLM) applications.**
-
-[![PyPI](https://img.shields.io/pypi/v/eval-protocol)](https://pypi.org/project/eval-protocol/)
+[![PyPI](https://img.shields.io/pypi/v/eval-protocol)](https://pypi.org/pypi/v/eval-protocol/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/eval-protocol/eval-protocol/blob/main/LICENSE)
-[![Discord](https://img.shields.io/badge/discord-join-7289da.svg)](https://discord.com/channels/1137072072808472616/1400975572405850155)
 
-[Documentation](https://evalprotocol.io) • [Quick Start](#user-content--quick-start) • [Why EP?](#user-content--why-eval-protocol) • [Community](#user-content--community)
+[Documentation](https://evalprotocol.io)
 
 </div>
 
 ## 🚀 What is Eval Protocol?
 
-Eval Protocol (EP) transforms evaluations from one-off tests into the foundation of your AI development loop. Whether you're benchmarking single-turn tasks or training complex multi-turn agents, EP gives you a consistent way to define, run, and monitor evaluations—at every stage of system development.
+When you have multiple AI models to choose from—different versions, providers, or configurations—how do you know which one is best for your use case?
 
 ### ✨ Key Features
 
@@ -41,15 +37,13 @@ Eval Protocol (EP) transforms evaluations from one-off tests into the foundation
 
 ## 🚀 Quick Start
 
-Install EP with a single command and start evaluating your models:
-
 ```bash
 pip install eval-protocol
 ```
 
-### Simple Example
+### Example: Model Comparison
 
-Here's a quick test that checks if a model's response contains **bold** text formatting:
+Compare models on a simple formatting task:
 
 ```python
 from eval_protocol.models import EvaluateResult, EvaluationRow, Message
@@ -58,67 +52,45 @@ from eval_protocol.pytest import default_single_turn_rollout_processor, evaluati
 @evaluation_test(
     input_messages=[
         [
-            Message(role="system", content="You are a helpful assistant. Use bold text to highlight important information."),
-            Message(role="user", content="Explain why **evaluations** matter for building AI agents. Make it dramatic!"),
+            Message(role="system", content="Use bold text to highlight important information."),
+            Message(role="user", content="Explain why evaluations matter for AI agents. Make it dramatic!"),
         ],
     ],
-    model=["fireworks_ai/accounts/fireworks/models/llama-v3p1-8b-instruct"],
+    model=[
+        "fireworks_ai/accounts/fireworks/models/llama-v3p1-8b-instruct",
+        "openai/gpt-4",
+        "anthropic/claude-3-sonnet"
+    ],
     rollout_processor=default_single_turn_rollout_processor,
     mode="pointwise",
 )
 def test_bold_format(row: EvaluationRow) -> EvaluationRow:
-    """Simple evaluation that checks if the model's response contains bold text."""
+    """Check if the model's response contains bold text."""
     assistant_response = row.messages[-1].content
     
     if assistant_response is None:
-        result = EvaluateResult(score=0.0, reason="❌ No response found")
-        row.evaluation_result = result
+        row.evaluation_result = EvaluateResult(score=0.0, reason="No response")
         return row
     
-    # Check if response contains **bold** text
     has_bold = "**" in str(assistant_response)
+    score = 1.0 if has_bold else 0.0
+    reason = "Contains bold text" if has_bold else "No bold text found"
     
-    if has_bold:
-        result = EvaluateResult(score=1.0, reason="✅ Response contains bold text")
-    else:
-        result = EvaluateResult(score=0.0, reason="❌ No bold text found")
-    
-    row.evaluation_result = result
+    row.evaluation_result = EvaluateResult(score=score, reason=reason)
     return row
 ```
 
-## 🎯 Why Eval Protocol?
+## 🎯 Why Build Model Leaderboards?
 
-AI quality is a hard problem. Building a great AI system isn't just about using a better model—it's about making better decisions across prompts, data, model versions, tool usage, and user workflows. To do that well, you need great *evals*.
+- **Compare models** across quality, performance, and cost
+- **Standardize evaluation** across your entire model portfolio  
+- **Make data-driven decisions** about which model to deploy
+- **Track improvements** as you iterate on models and prompts
 
-EP was created to help developers treat evaluation as a core part of the development loop, not an afterthought. With EP, you get one evaluation framework that supports:
+## 📚 Resources
 
-- ✅ **Offline benchmarking** (for model selection and quality tracking)
-- ✅ **Dataset generation** (for SFT and RL)
-- ✅ **Reward shaping and debugging** (for custom training workflows)
-- ✅ **CI integration** (so regressions are caught early)
-
-## 🏛️ Core Principles
-
-1. **Evaluations as Code**: Treat evaluations as first-class code—not configuration files
-2. **Developer Experience First**: Prioritize developer productivity through simple integration
-3. **Standards-Based Interoperability**: Build on existing, proven standards
-4. **Non-Prescriptive Architecture**: Work with any AI architecture
-5. **Open Source Foundation**: Unify AI developers on a standard
-6. **Performance at Scale**: Designed for production workloads
-7. **Evolutionary Architecture**: Grow from single-turn to multi-turn evaluations
-8. **Reinforcement Learning Ready**: Bridge evaluation and training
-
-## 📚 Documentation & Resources
-
-- **[📖 Full Documentation](https://evalprotocol.io)** - Comprehensive guides and API reference
-- **[📋 Specification](https://evalprotocol.io/specification)** - Technical specification details
-- **[🎓 Tutorials](https://evalprotocol.io/tutorial)** - Step-by-step guides for different use cases
-- **[🔧 Examples](https://evalprotocol.io/example)** - Ready-to-run evaluation examples
-
-## 🤝 Community
-
-- **💬 [Discord](https://discord.com/channels/1137072072808472616/1400975572405850155)** - Join our community discussions
+- **[Documentation](https://evalprotocol.io)** - Complete guides and API reference
+- **[Discord](https://discord.com/channels/1137072072808472616/1400975572405850155)** - Community discussions
 
 ## 📄 License
 
