@@ -17,15 +17,6 @@
 
 When you have multiple AI models to choose from—different versions, providers, or configurations—how do you know which one is best for your use case?
 
-### ✨ Key Features
-
-- **🧪 Evaluations as Code**: Write evals as pytest functions with familiar decorators
-- **🔄 One Format, Two Modes**: Support for both static and dynamic evaluation
-- **🎯 Reinforcement Learning Ready**: Bridge the gap between evaluation and training
-- **🔧 Standards-Based**: Built on OpenAI Chat Completions API, MCP, and pytest
-- **📊 Rich Instrumentation**: Real-time log viewing and comprehensive result storage
-- **🚀 Production Ready**: Parallel execution and optimized for multi-turn scenarios
-
 ## 🏗️ Organization Repositories
 
 ### Core Projects
