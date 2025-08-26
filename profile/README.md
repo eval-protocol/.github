@@ -24,7 +24,7 @@ When you have multiple AI models to choose from—different versions, providers,
 | Repository | Description |
 |------------|-------------|
 | **[eval-protocol](https://github.com/eval-protocol/eval-protocol)** | Main specification, documentation, and examples |
-| **[python-sdk](https://github.com/eval-protocol/python-sdk)** | Python implementation with pytest integration |
+| **[python-sdk](https://github.com/eval-protocol/python-sdk)** | Python implementation |
 
 ## 🚀 Quick Start
 
