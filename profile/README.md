@@ -22,9 +22,6 @@
 | **[eval-protocol](https://github.com/eval-protocol/eval-protocol)** | Main specification, documentation, and examples |
 | **[python-sdk](https://github.com/eval-protocol/python-sdk)** | Python implementation |
 
-> 👉 Read the [Documentation](https://evalprotocol.io)
-
- 
 
 ## 📄 License
 
