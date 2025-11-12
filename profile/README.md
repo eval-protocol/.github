@@ -4,7 +4,7 @@
 
 <img src="https://raw.githubusercontent.com/eval-protocol/eval-protocol/main/assets/favicon-light.png" alt="Eval Protocol Logo" height="128"/>
 
-**The open-source framework to help you write evals for RL.**
+**Eval Protocol (EP) is an open solution for doing reinforcement learning fine-tuning on existing agents — across any language, container, or framework.**
 
 [![PyPI](https://img.shields.io/pypi/v/eval-protocol)](https://pypi.org/pypi/v/eval-protocol/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/eval-protocol/eval-protocol/blob/main/LICENSE)
